@@ -1,18 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Manrope, Bodoni_Moda } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-serif",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans",
   display: "swap",
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const bodoni = Bodoni_Moda({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -21,7 +22,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#FAF7F2",
+  themeColor: "#FAF8F5",
 };
 
 export const metadata: Metadata = {
@@ -42,9 +43,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${jakarta.variable} scroll-smooth`}
+      className={`${manrope.variable} ${bodoni.variable} scroll-smooth`}
     >
-      <body className="bg-[#FAF7F2] text-[#2D1115] font-sans selection:bg-[#F8D7DD] selection:text-[#5C1220] antialiased overflow-x-hidden min-h-screen">
+      <body className="bg-[#FAF8F5] text-[#241719] font-sans antialiased overflow-x-hidden min-h-screen selection:bg-[#F3E3E3] selection:text-[#A94B58]">
         {children}
       </body>
     </html>

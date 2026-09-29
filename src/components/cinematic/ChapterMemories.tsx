@@ -14,55 +14,53 @@ export function ChapterMemories() {
   };
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col justify-center py-20 px-5 sm:px-8 max-w-2xl mx-auto">
-      {/* Editorial Title */}
+    <section className="relative min-h-screen w-full flex flex-col justify-center py-20 px-6 sm:px-12 max-w-3xl mx-auto">
+      {/* Chapter Title */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.9 }}
-        className="text-center mb-14"
+        className="text-left mb-14"
       >
-        <span className="font-sans text-[11px] font-semibold tracking-widest text-[#C9A030] uppercase block mb-2">
-          Chapter {memories.number}
+        <span className="font-sans text-[11px] font-semibold tracking-ultra text-studio-secondary/60 uppercase block mb-3">
+          CHAPTER {memories.number}
         </span>
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#22040A] tracking-normal font-normal">
+        <h2 className="font-sans text-3xl sm:text-5xl text-studio-primary font-medium tracking-tight">
           {memories.title}
         </h2>
       </motion.div>
 
-      {/* Large Editorial Photos */}
+      {/* Editorial Photography List */}
       <div className="space-y-16 sm:space-y-20 w-full">
         {memories.items.map((item) => (
           <motion.div
             key={item.id}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1 }}
-            className="flex flex-col items-center text-center"
+            transition={{ duration: 0.9 }}
+            className="flex flex-col items-start"
           >
-            {/* Photo Frame */}
-            <div className="relative w-full max-w-md sm:max-w-lg aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden bg-[#FAF7F2] p-2 border border-[#7E192D]/15 shadow-xl group">
-              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#FAF7F2]">
-                {!imageErrors[item.id] ? (
-                  <img
-                    src={item.image}
-                    alt={item.alt}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-                    onError={() => handleImageError(item.id)}
-                  />
-                ) : (
-                  <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-[#FDE8EB]/50">
-                    <Heart className="w-10 h-10 fill-[#E15872] text-[#E15872] mb-3 animate-pulse" />
-                  </div>
-                )}
-              </div>
+            {/* Modern Image Container */}
+            <div className="relative w-full aspect-[4/5] sm:aspect-[16/10] rounded-2xl overflow-hidden bg-studio-card border border-studio-border shadow-studio group">
+              {!imageErrors[item.id] ? (
+                <img
+                  src={item.image}
+                  alt={item.alt}
+                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  onError={() => handleImageError(item.id)}
+                />
+              ) : (
+                <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-studio-blush/30">
+                  <Heart className="w-8 h-8 fill-studio-accent text-studio-accent animate-pulse" />
+                </div>
+              )}
             </div>
 
-            {/* Clean Quote Caption */}
-            <div className="mt-4 max-w-sm">
-              <p className="font-serif text-lg sm:text-xl text-[#3B0A13] italic font-normal leading-relaxed">
+            {/* Clean Modern Caption */}
+            <div className="mt-4 text-left">
+              <p className="font-sans text-base sm:text-lg text-studio-primary font-normal leading-relaxed">
                 “{item.caption}”
               </p>
             </div>

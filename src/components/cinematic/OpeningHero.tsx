@@ -2,35 +2,37 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, Sparkles } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { loveLetterConfig } from "@/config/content";
 
 export function OpeningHero() {
   const { opening } = loveLetterConfig;
 
   return (
-    <section className="relative min-h-[92vh] sm:min-h-screen w-full flex flex-col items-center justify-between py-16 px-5 sm:px-8 text-center max-w-2xl mx-auto">
+    <section className="relative min-h-[92vh] sm:min-h-screen w-full flex flex-col justify-between py-16 px-6 sm:px-12 md:px-20 max-w-5xl mx-auto">
+      {/* Subtle Warm Light Glow (Behind Statement) */}
+      <div className="absolute top-1/3 left-1/4 w-[350px] h-[350px] rounded-full bg-studio-accent/10 blur-[100px] pointer-events-none -z-10" />
+
       {/* Top Eyebrow */}
       <motion.div
-        initial={{ opacity: 0, y: -10 }}
+        initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        className="pt-4"
+        transition={{ duration: 0.9, delay: 0.2 }}
+        className="pt-2 text-left"
       >
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FAF7F2] border border-[#7E192D]/10 text-[#5C1220] text-xs font-sans tracking-widest uppercase">
-          <Sparkles className="w-3 h-3 text-[#C9A030]" />
-          <span>{opening.eyebrow}</span>
-        </div>
+        <span className="font-sans text-[11px] sm:text-[12px] font-medium tracking-ultra uppercase text-studio-secondary/70">
+          {opening.eyebrow}
+        </span>
       </motion.div>
 
-      {/* Main Staggered Emotional Flow */}
-      <div className="my-auto py-10 w-full flex flex-col items-center">
+      {/* Asymmetric Modern Studio Hero Layout */}
+      <div className="my-auto py-12 w-full max-w-3xl text-left space-y-6 sm:space-y-8">
         {/* Line 1 */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.8 }}
-          className="font-serif text-xl sm:text-2xl text-[#3B0A13]/70 font-normal mb-3"
+          transition={{ duration: 1, delay: 0.6 }}
+          className="font-sans text-xl sm:text-2xl text-studio-primary/80 font-medium leading-relaxed"
         >
           {opening.line1}
         </motion.p>
@@ -39,41 +41,48 @@ export function OpeningHero() {
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 1.8 }}
-          className="font-serif text-lg sm:text-xl text-[#3B0A13]/75 font-normal italic mb-8"
+          transition={{ duration: 1, delay: 1.4 }}
+          className="font-sans text-base sm:text-xl text-studio-secondary font-light leading-relaxed"
         >
           {opening.line2}
         </motion.p>
 
-        {/* Line 3 — Main Statement */}
+        {/* Main Heading — Loving You in Bodoni Moda */}
         <motion.h1
-          initial={{ opacity: 0, scale: 0.96, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1.4, delay: 3.0 }}
-          className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#22040A] font-normal tracking-tight leading-[1.2] mb-8 max-w-xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 2.4 }}
+          className="font-sans text-4xl sm:text-6xl md:text-[72px] text-studio-primary font-semibold tracking-tighter leading-[1.12]"
         >
-          {opening.line3Main}
+          I started{" "}
+          <span className="font-serif italic font-normal text-studio-accent px-1">
+            loving you
+          </span>{" "}
+          a little more every day.
         </motion.h1>
 
         {/* Line 4 */}
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 4.5 }}
-          className="font-serif text-xl sm:text-2xl text-[#5C1220]/70 font-light italic mb-4"
+          transition={{ duration: 1, delay: 3.6 }}
+          className="font-sans text-lg sm:text-xl text-studio-secondary font-light italic"
         >
           {opening.line4}
         </motion.p>
 
-        {/* Line 5 — Climax */}
+        {/* Line 5 Climax — Pure Editorial Typography (No Box!) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.94, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1.5, delay: 5.8 }}
-          className="p-5 sm:p-6 rounded-3xl bg-gradient-to-b from-[#FDE8EB]/70 to-[#FAF7F2] border border-[#7E192D]/15 shadow-sm max-w-md w-full"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 4.8 }}
+          className="pt-2"
         >
-          <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#3B0A13] font-normal tracking-tight leading-tight">
-            {opening.line5Climax}
+          <p className="font-sans text-2xl sm:text-4xl text-studio-primary font-light tracking-tight">
+            a little more became{" "}
+            <span className="font-serif italic font-normal text-studio-primary border-b border-studio-accent/40 pb-0.5">
+              everything.
+            </span>
           </p>
         </motion.div>
       </div>
@@ -81,14 +90,14 @@ export function OpeningHero() {
       {/* Bottom Scroll Prompt */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: [0.4, 0.9, 0.4] }}
-        transition={{ duration: 2.5, repeat: Infinity, delay: 7.0 }}
-        className="flex flex-col items-center gap-1.5 pb-2 cursor-pointer"
+        animate={{ opacity: [0.3, 0.8, 0.3] }}
+        transition={{ duration: 2.5, repeat: Infinity, delay: 6.0 }}
+        className="flex flex-col items-start gap-1 pb-2 cursor-pointer select-none"
       >
-        <span className="font-sans text-[11px] tracking-widest uppercase text-[#3B0A13]/50">
+        <span className="font-sans text-[11px] tracking-ultra uppercase text-studio-secondary/60">
           {opening.scrollPrompt}
         </span>
-        <ChevronDown className="w-3.5 h-3.5 text-[#3B0A13]/40 animate-bounce" />
+        <ChevronDown className="w-3.5 h-3.5 text-studio-secondary/50 animate-bounce" />
       </motion.div>
     </section>
   );

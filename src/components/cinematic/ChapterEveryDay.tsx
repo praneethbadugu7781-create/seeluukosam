@@ -8,35 +8,35 @@ export function ChapterEveryDay() {
   const { chapter03 } = loveLetterConfig;
 
   return (
-    <section className="relative min-h-[90vh] sm:min-h-screen w-full flex flex-col items-center justify-center py-24 px-6 sm:px-10 text-center max-w-xl mx-auto overflow-hidden">
-      {/* Subtle Warm Ambient Glow */}
+    <section className="relative min-h-[90vh] sm:min-h-screen w-full flex flex-col items-center justify-center py-24 px-6 sm:px-12 text-center max-w-3xl mx-auto overflow-hidden">
+      {/* Subtle Blurred Warm Light */}
       <motion.div
         animate={{
-          scale: [1, 1.25, 1],
-          opacity: [0.35, 0.6, 0.35],
+          scale: [1, 1.15, 1],
+          opacity: [0.2, 0.4, 0.2],
         }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute w-72 h-72 rounded-full bg-gradient-to-tr from-[#FBD5DB] via-[#FCEEE4] to-[#F5E9B8] blur-3xl pointer-events-none -z-10"
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute w-80 h-80 rounded-full bg-studio-accent/10 blur-[110px] pointer-events-none -z-10"
       />
 
-      {/* Chapter Number */}
+      {/* Chapter Badge */}
       <motion.span
-        initial={{ opacity: 0, y: 15 }}
+        initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="font-sans text-[11px] font-semibold tracking-widest text-[#C9A030] uppercase block mb-6"
+        className="font-sans text-[11px] font-semibold tracking-ultra text-studio-secondary/60 uppercase block mb-6"
       >
-        Chapter {chapter03.number}
+        CHAPTER {chapter03.number}
       </motion.span>
 
       {/* Large Minimalist Statement */}
       <motion.h2
-        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.1 }}
-        className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#22040A] tracking-tight font-normal leading-tight mb-8"
+        transition={{ duration: 1 }}
+        className="font-sans text-3xl sm:text-5xl md:text-6xl text-studio-primary font-medium tracking-tight leading-tight mb-8"
       >
         {chapter03.statement}
       </motion.h2>
@@ -46,8 +46,8 @@ export function ChapterEveryDay() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.9, delay: 0.4 }}
-        className="font-serif text-lg sm:text-xl text-[#3B0A13]/70 italic mb-4"
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="font-sans text-lg sm:text-xl text-studio-secondary font-light mb-4"
       >
         {chapter03.bridge}
       </motion.p>
@@ -57,10 +57,10 @@ export function ChapterEveryDay() {
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.7 }}
-        className="p-5 rounded-2xl bg-[#FAF7F2]/90 border border-[#7E192D]/15 shadow-sm"
+        transition={{ duration: 0.9, delay: 0.6 }}
+        className="pt-2"
       >
-        <p className="font-serif text-2xl sm:text-3xl text-[#5C1220] font-normal tracking-tight">
+        <p className="font-sans text-2xl sm:text-4xl text-studio-accent font-medium tracking-tight">
           {chapter03.punchline}
         </p>
       </motion.div>
