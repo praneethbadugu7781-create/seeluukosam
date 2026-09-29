@@ -1,38 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Italiana, Cormorant_Garamond, Outfit, Alex_Brush, Playfair_Display } from "next/font/google";
+import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-
-const italiana = Italiana({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-italiana",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  weight: ["300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-outfit",
-  display: "swap",
-});
-
-const alexBrush = Alex_Brush({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-alex",
-  display: "swap",
-});
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-sans",
   display: "swap",
 });
 
@@ -62,9 +42,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${italiana.variable} ${cormorant.variable} ${outfit.variable} ${alexBrush.variable} ${playfair.variable} scroll-smooth`}
+      className={`${playfair.variable} ${jakarta.variable} scroll-smooth`}
     >
-      <body className="bg-[#FAF7F2] text-[#24060C] font-sans selection:bg-[#F8D7DD] selection:text-[#5C1220] antialiased overflow-x-hidden min-h-screen">
+      <body className="bg-[#FAF7F2] text-[#2D1115] font-sans selection:bg-[#F8D7DD] selection:text-[#5C1220] antialiased overflow-x-hidden min-h-screen">
         {children}
       </body>
     </html>

@@ -25,7 +25,7 @@ export function ChapterEveryDay() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="font-serif text-xs font-semibold tracking-widest text-[#C9A030] uppercase block mb-6"
+        className="font-sans text-[11px] font-semibold tracking-widest text-[#C9A030] uppercase block mb-6"
       >
         Chapter {chapter03.number}
       </motion.span>
@@ -36,7 +36,7 @@ export function ChapterEveryDay() {
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1.1 }}
-        className="font-brand text-3xl sm:text-5xl md:text-6xl text-[#22040A] tracking-wide leading-tight mb-8"
+        className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#22040A] tracking-tight font-normal leading-tight mb-8"
       >
         {chapter03.statement}
       </motion.h2>
@@ -58,9 +58,9 @@ export function ChapterEveryDay() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.7 }}
-        className="p-4 sm:p-5 rounded-2xl bg-[#FAF7F2]/80 border border-[#7E192D]/15 shadow-sm"
+        className="p-5 rounded-2xl bg-[#FAF7F2]/90 border border-[#7E192D]/15 shadow-sm"
       >
-        <p className="font-brand text-2xl sm:text-3xl text-[#5C1220] tracking-wide">
+        <p className="font-serif text-2xl sm:text-3xl text-[#5C1220] font-normal tracking-tight">
           {chapter03.punchline}
         </p>
       </motion.div>

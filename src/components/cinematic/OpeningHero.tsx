@@ -6,7 +6,7 @@ import { ChevronDown, Sparkles } from "lucide-react";
 import { loveLetterConfig } from "@/config/content";
 
 export function OpeningHero() {
-  const { opening, herNickname } = loveLetterConfig;
+  const { opening } = loveLetterConfig;
 
   return (
     <section className="relative min-h-[92vh] sm:min-h-screen w-full flex flex-col items-center justify-between py-16 px-5 sm:px-8 text-center max-w-2xl mx-auto">
@@ -17,7 +17,7 @@ export function OpeningHero() {
         transition={{ duration: 1, delay: 0.3 }}
         className="pt-4"
       >
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FAF7F2] border border-[#7E192D]/10 text-[#5C1220] text-[11px] font-sans tracking-widest uppercase">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FAF7F2] border border-[#7E192D]/10 text-[#5C1220] text-xs font-sans tracking-widest uppercase">
           <Sparkles className="w-3 h-3 text-[#C9A030]" />
           <span>{opening.eyebrow}</span>
         </div>
@@ -45,12 +45,12 @@ export function OpeningHero() {
           {opening.line2}
         </motion.p>
 
-        {/* Line 3 — Much Larger Emotional Anchor */}
+        {/* Line 3 — Main Statement */}
         <motion.h1
           initial={{ opacity: 0, scale: 0.96, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.4, delay: 3.0 }}
-          className="font-brand text-3xl sm:text-5xl md:text-6xl text-[#22040A] tracking-wide leading-[1.15] mb-8 max-w-xl"
+          className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#22040A] font-normal tracking-tight leading-[1.2] mb-8 max-w-xl"
         >
           {opening.line3Main}
         </motion.h1>
@@ -70,9 +70,9 @@ export function OpeningHero() {
           initial={{ opacity: 0, scale: 0.94, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.5, delay: 5.8 }}
-          className="p-4 sm:p-5 rounded-3xl bg-gradient-to-b from-[#FDE8EB]/60 to-[#FAF7F2]/40 border border-[#7E192D]/15 shadow-sm max-w-md w-full"
+          className="p-5 sm:p-6 rounded-3xl bg-gradient-to-b from-[#FDE8EB]/70 to-[#FAF7F2] border border-[#7E192D]/15 shadow-sm max-w-md w-full"
         >
-          <p className="font-brand text-2xl sm:text-3xl md:text-4xl text-[#3B0A13] tracking-wide leading-tight">
+          <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#3B0A13] font-normal tracking-tight leading-tight">
             {opening.line5Climax}
           </p>
         </motion.div>
@@ -85,7 +85,7 @@ export function OpeningHero() {
         transition={{ duration: 2.5, repeat: Infinity, delay: 7.0 }}
         className="flex flex-col items-center gap-1.5 pb-2 cursor-pointer"
       >
-        <span className="font-sans text-[11px] tracking-ultra uppercase text-[#3B0A13]/50">
+        <span className="font-sans text-[11px] tracking-widest uppercase text-[#3B0A13]/50">
           {opening.scrollPrompt}
         </span>
         <ChevronDown className="w-3.5 h-3.5 text-[#3B0A13]/40 animate-bounce" />

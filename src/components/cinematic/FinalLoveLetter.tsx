@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Heart, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { loveLetterConfig } from "@/config/content";
 
 export function FinalLoveLetter() {
@@ -16,7 +16,7 @@ export function FinalLoveLetter() {
         whileInView={{ scale: 1, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="mb-10 p-3.5 rounded-full bg-gradient-to-tr from-[#FDE8EB] via-[#FAF7F2] to-[#FCEEE4] border border-[#7E192D]/15 shadow-sm"
+        className="mb-10 p-3.5 rounded-full bg-[#FAF7F2] border border-[#7E192D]/15 shadow-sm"
       >
         <Sparkles className="w-5 h-5 text-[#C9A030]" />
       </motion.div>
@@ -38,7 +38,7 @@ export function FinalLoveLetter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="font-serif text-lg sm:text-xl text-[#7E192D] italic"
+          className="font-serif text-lg sm:text-xl text-[#7E192D] italic font-normal"
         >
           {finalMessage.line2}
         </motion.p>
@@ -49,13 +49,13 @@ export function FinalLoveLetter() {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, delay: 0.8 }}
-          className="font-brand text-3xl sm:text-5xl md:text-6xl text-[#22040A] tracking-wide leading-tight pt-4"
+          className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#22040A] tracking-tight font-normal leading-tight pt-4"
         >
           {finalMessage.line3}
         </motion.h2>
       </div>
 
-      {/* Signature in Romantic Script */}
+      {/* Signature in Elegant Serif */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -63,10 +63,10 @@ export function FinalLoveLetter() {
         transition={{ duration: 1.2, delay: 1.2 }}
         className="pt-6 border-t border-[#7E192D]/15 w-full max-w-xs"
       >
-        <p className="font-script text-4xl sm:text-5xl text-[#7E192D] tracking-wide mb-3">
+        <p className="font-serif text-2xl sm:text-3xl text-[#7E192D] font-normal tracking-wide mb-3 italic">
           {finalMessage.signature}
         </p>
-        <p className="font-sans text-xs tracking-widest uppercase text-[#3B0A13]/50">
+        <p className="font-sans text-xs tracking-widest uppercase text-[#3B0A13]/50 font-normal">
           {finalMessage.footnote}
         </p>
       </motion.div>

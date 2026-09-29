@@ -17,10 +17,10 @@ export function ChapterLittleThings() {
         transition={{ duration: 0.9 }}
         className="text-center mb-12"
       >
-        <span className="font-serif text-xs font-semibold tracking-widest text-[#C9A030] uppercase block mb-1">
+        <span className="font-sans text-[11px] font-semibold tracking-widest text-[#C9A030] uppercase block mb-2">
           Chapter {chapter02.number}
         </span>
-        <h2 className="font-brand text-2xl sm:text-3xl md:text-4xl text-[#22040A] tracking-wide leading-snug">
+        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#22040A] tracking-tight font-normal leading-snug">
           {chapter02.heading}
         </h2>
       </motion.div>
@@ -37,7 +37,7 @@ export function ChapterLittleThings() {
             whileHover={{ y: -2 }}
             className={`p-5 sm:p-6 rounded-2xl border transition-all duration-300 ${
               idx === chapter02.cards.length - 1
-                ? "bg-gradient-to-br from-[#FAF7F2] via-[#FDE8EB]/70 to-[#FAF7F2] border-[#7E192D]/30 shadow-md ring-1 ring-[#7E192D]/10"
+                ? "bg-gradient-to-br from-[#FAF7F2] via-[#FDE8EB]/70 to-[#FAF7F2] border-[#7E192D]/30 shadow-md"
                 : "bg-[#FAF7F2]/90 hover:bg-[#FAF7F2] border-[#7E192D]/15 shadow-sm"
             }`}
           >
@@ -48,7 +48,7 @@ export function ChapterLittleThings() {
               className={`font-serif leading-relaxed ${
                 idx === chapter02.cards.length - 1
                   ? "text-lg sm:text-xl font-medium text-[#5C1220]"
-                  : "text-base sm:text-lg text-[#3B0A13]/90"
+                  : "text-base sm:text-lg text-[#3B0A13]/90 font-normal"
               }`}
             >
               {text}

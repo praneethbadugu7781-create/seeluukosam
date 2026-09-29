@@ -15,7 +15,7 @@ export function ChapterFinal() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.9 }}
-        className="font-serif text-lg sm:text-xl text-[#3B0A13]/60 italic mb-8"
+        className="font-serif text-lg sm:text-xl text-[#3B0A13]/60 italic mb-8 font-normal"
       >
         {finalChapter.prompt}
       </motion.p>
@@ -26,7 +26,7 @@ export function ChapterFinal() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 1.1, delay: 0.3 }}
-        className="font-brand text-5xl sm:text-7xl text-[#22040A] tracking-wider mb-6"
+        className="font-serif text-5xl sm:text-7xl text-[#22040A] tracking-tight font-normal mb-6"
       >
         {finalChapter.wordYes}
       </motion.h2>
@@ -37,7 +37,7 @@ export function ChapterFinal() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 1.1, delay: 0.6 }}
-        className="font-brand text-3xl sm:text-5xl text-[#5C1220] tracking-wide mb-6"
+        className="font-serif text-3xl sm:text-5xl text-[#5C1220] font-normal tracking-tight mb-6"
       >
         {finalChapter.statement}
       </motion.h3>
@@ -48,7 +48,7 @@ export function ChapterFinal() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 1.1, delay: 0.9 }}
-        className="font-serif text-xl sm:text-2xl text-[#3B0A13]/85 italic"
+        className="font-serif text-xl sm:text-2xl text-[#3B0A13]/85 italic font-normal"
       >
         {finalChapter.climax}
       </motion.p>

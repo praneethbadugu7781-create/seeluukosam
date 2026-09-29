@@ -20,11 +20,8 @@ export function ChapterThoughts() {
         transition={{ duration: 0.8 }}
         className="mb-8"
       >
-        <span className="font-serif text-xs font-semibold tracking-widest text-[#EED888] uppercase block mb-1">
+        <span className="font-sans text-[11px] font-semibold tracking-widest text-[#EED888] uppercase block mb-1">
           Chapter {chapter04.number}
-        </span>
-        <span className="font-sans text-xs uppercase tracking-widest text-[#FBD5DB]/60">
-          An intimate confession
         </span>
       </motion.div>
 
@@ -35,7 +32,7 @@ export function ChapterThoughts() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.9, delay: 0.2 }}
-          className="font-serif text-xl sm:text-2xl text-[#FAF7F2]/80 font-light"
+          className="font-serif text-xl sm:text-2xl text-[#FAF7F2]/80 font-normal"
         >
           {chapter04.line1}
         </motion.p>
@@ -45,7 +42,7 @@ export function ChapterThoughts() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.9, delay: 0.5 }}
-          className="font-serif text-xl sm:text-2xl text-[#FAF7F2]/80 font-light"
+          className="font-serif text-xl sm:text-2xl text-[#FAF7F2]/80 font-normal"
         >
           {chapter04.line2}
         </motion.p>
@@ -68,7 +65,7 @@ export function ChapterThoughts() {
           transition={{ duration: 1.2, delay: 1.1 }}
           className="pt-6"
         >
-          <p className="font-brand text-2xl sm:text-4xl md:text-5xl text-[#FAF7F2] tracking-wide leading-tight">
+          <p className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#FAF7F2] font-normal tracking-tight leading-tight">
             {chapter04.climax}
           </p>
         </motion.div>
