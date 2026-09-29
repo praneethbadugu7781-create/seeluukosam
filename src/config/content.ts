@@ -79,33 +79,21 @@ export const loveLetterConfig: LoveLetterConfig = {
     climax: "you'd find your name there more often than you'd expect. ❤️",
   },
 
-  // MEMORIES: Things I don't want to forget.
+  // MEMORIES: Things I don't want to forget (Strictly ONLY the third photo!)
   memories: {
     number: "05",
     title: "Things I don't want to forget.",
     items: [
       {
-        id: "mem-1",
-        image: "/photos/memory1.jpg",
-        caption: "One of those moments I wish I could replay.",
-        alt: "Sarvani smiling",
-      },
-      {
-        id: "mem-2",
-        image: "/photos/memory2.jpg",
-        caption: "You probably don't remember this one.",
-        alt: "Sarvani in traditional elegance",
-      },
-      {
-        id: "mem-3",
+        id: "mem-main",
         image: "/photos/memory3.jpg",
-        caption: "But I do.",
+        caption: "One of those moments I wish I could replay.",
         alt: "Praneeth and Sarvani together",
       },
     ],
   },
 
-  // CHAPTER 06: COMMITMENT & FOREVER (REPLACES OLD "YOU ARE ENOUGH")
+  // CHAPTER 06: COMMITMENT & FOREVER
   chapter06Forever: {
     number: "06",
     intro: "If I ever get the chance to spend my life making memories with you…",
