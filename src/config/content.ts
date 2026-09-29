@@ -1,166 +1,155 @@
-import { SiteConfig } from "@/types";
+import { LoveLetterConfig } from "@/types";
 
 /**
  * =======================================================================
- * ROMANTIC DATE INVITATION CONFIGURATION
+ * DIGITAL LOVE LETTER CONFIGURATION — FOR SARVANI (SEELUU) ❤️
  * =======================================================================
- * Customized for Seeluu & Praneeth ❤️
+ * A cinematic, deeply emotional private love letter experience.
+ * All texts, memories, captions, and music settings can be customized here.
  */
-export const siteConfig: SiteConfig = {
-  // Her Name
-  herName: "Seeluu",
-
-  // Your name and signature
+export const loveLetterConfig: LoveLetterConfig = {
+  herFormalName: "Sarvani",
+  herNickname: "Seeluu",
   hisName: "Praneeth",
   hisSignature: "— Praneeth ❤️",
 
-  // WhatsApp Confirmation Number
-  whatsappNumber: "917330820239",
-
-  // Background Music configuration
   music: {
     title: "Our Song",
     artist: "Acoustic Melody",
     audioUrl: "/audio/our-song.mp3",
   },
 
-  // Screen 1: The Mystery Opening
-  screen1: {
-    greeting: "Hey Seeluu… ❤️",
-    subtitle: "I made something special just for you.",
-    disclaimer: "Please don't judge me until you reach the end. 🫣",
-    ctaText: "OPEN IT",
+  // 04 — OPENING SCREEN
+  opening: {
+    eyebrow: "A little something I wanted you to know.",
+    line1: "I don't know exactly when it happened…",
+    line2: "but somewhere between all our conversations,",
+    line3Main: "I started loving you a little more every day.",
+    line4: "And somehow…",
+    line5Climax: "a little more became everything. ❤️",
+    scrollPrompt: "scroll slowly ↓",
   },
 
-  // Screen 2: The Personal Message
-  screen2: {
-    title: "I could've just texted you…",
-    lines: [
-      "But somehow…",
-      "I didn't want to.",
-      "Because this felt like something…",
-      "that deserved a little more effort.",
+  // 06 — CHAPTER 01: “It happened quietly.”
+  chapter01: {
+    number: "01",
+    title: "It happened quietly.",
+    heading: "I didn't fall for you all at once.",
+    subheading: "It happened quietly.",
+    spacedLines: [
+      "A conversation here.",
+      "A smile there.",
+      "A memory I didn't want to forget.",
+      "Another moment I wanted to keep.",
     ],
-    climax: "So I made you this, Seeluu. ❤️",
-    ctaText: "Continue",
+    bridge: "Until one day I realized…",
+    realization1: "I wasn't just getting attached to you.",
+    realization2: "I was falling in love with you.",
   },
 
-  // Screen 3: The Big Question
-  screen3: {
-    prepTitle: "Okay… I have one question for you",
-    question: "Will you go on a date with me?",
-    subtext: "Just you + me + a little bit of happiness. ❤️",
-    yesInitialText: "YES, I WILL ❤️",
-    maybeSequence: [
-      "Maybe… 👀",
-      "Are you sure, Seeluu? 😂",
-      "Nice try 😌",
-      "You know you want to ❤️",
-      "Okay okay… just say YES 🥹",
-      "Resistance is impossible 🙈",
-      "Still trying? 😂❤️",
-      "Come on, say yes! 💖",
+  // 07 — CHAPTER 02: “It's the little things.”
+  chapter02: {
+    number: "02",
+    title: "It's the little things.",
+    heading: "You probably don't even realize how many little things I love about you, Seeluu.",
+    cards: [
+      "The way you talk.",
+      "The little things you say.",
+      "The random conversations.",
+      "The moments that somehow stay in my head.",
+      "The way a simple message from you can change my entire mood.",
     ],
-    yesEvolution: [
-      "YES, I WILL ❤️",
-      "YESSS ❤️",
-      "YES PLEASE 🥹❤️",
-      "ABSOLUTELY YES! 💖",
-      "1000x YES! ✨",
+  },
+
+  // 08 — CHAPTER 03: “Every day, a little more.”
+  chapter03: {
+    number: "03",
+    title: "Every day, a little more.",
+    statement: "Every day I find another reason to love you.",
+    bridge: "And the funny thing is…",
+    punchline: "You don't even have to try.",
+  },
+
+  // 09 — CHAPTER 04: “If you could see my thoughts…”
+  chapter04: {
+    number: "04",
+    title: "If you could see my thoughts…",
+    line1: "Maybe I don't say it enough.",
+    line2: "Maybe sometimes I don't know how to put it into words.",
+    line3: "But if you could somehow see my thoughts…",
+    climax: "you'd find your name there more often than you'd expect. ❤️",
+  },
+
+  // 10 — PERSONAL MEMORIES: “Things I don't want to forget.”
+  memories: {
+    number: "05",
+    title: "Things I don't want to forget.",
+    subtitle: "A few moments etched into my heart forever.",
+    items: [
+      {
+        id: "mem-1",
+        image: "/photos/memory1.jpg",
+        caption: "One of those moments I wish I could replay.",
+        tag: "Memory 01",
+        alt: "Sarvani smiling",
+      },
+      {
+        id: "mem-2",
+        image: "/photos/memory2.jpg",
+        caption: "You probably don't remember this one.",
+        tag: "Memory 02",
+        alt: "Sarvani in traditional elegance",
+      },
+      {
+        id: "mem-3",
+        image: "/photos/memory3.jpg",
+        caption: "But I do.",
+        tag: "Memory 03",
+        alt: "Praneeth and Sarvani together",
+      },
     ],
-    unlockedHeading: "I KNEW ITTT! 🥹❤️",
-    unlockedBadge: "Date officially unlocked. 🔓",
-    unlockedSubtext: "Now let's plan our little adventure…",
-    unlockedCta: "LET'S PLAN IT →",
   },
 
-  // Memories Section (Using your 3 uploaded photos!)
-  enableMemoriesSection: true,
-  memories: [
-    {
-      id: "mem-1",
-      title: "One of my favorite memories.",
-      description: "The way you laugh without holding back is genuinely my favorite sound in the world.",
-      tag: "Chapter 01",
-      image: "/photos/memory1.jpg",
-      placeholderEmoji: "🌸",
-    },
-    {
-      id: "mem-2",
-      title: "Still makes me smile.",
-      description: "Every unexpected joke, sweet glance, and late-night conversation we've shared.",
-      tag: "Chapter 02",
-      image: "/photos/memory2.jpg",
-      placeholderEmoji: "✨",
-    },
-    {
-      id: "mem-3",
-      title: "And somehow… here we are.",
-      description: "And every single day, I find myself looking forward to whatever comes next with you.",
-      tag: "Chapter 03",
-      image: "/photos/memory3.jpg",
-      placeholderEmoji: "💫",
-    },
-  ],
-
-  // Screen 4: Date Options (With Kaju Burfi Date!)
-  dateOptions: [
-    {
-      id: "kaju-burfi",
-      icon: "sweet",
-      title: "Kaju Burfi Date ✨",
-      description: "Boxes of your favorite Kaju Burfi, sweet smiles & pure happiness.",
-      accent: "from-amber-400/25 via-rose-400/15 to-transparent",
-      details: "Eating delicious Kaju Burfi together while talking about everything and losing track of time.",
-    },
-    {
-      id: "food-convos",
-      icon: "coffee",
-      title: "Food + Long Conversations",
-      description: "Because somehow we always have more to talk about.",
-      accent: "from-orange-500/20 via-red-500/15 to-transparent",
-      details: "An intimate cafe table, delicious plates, and endless stories.",
-    },
-    {
-      id: "movie-snacks",
-      icon: "film",
-      title: "Movie & Cozy Treats",
-      description: "Cuddled up, snacks in hand, zero responsibilities.",
-      accent: "from-purple-500/20 via-pink-500/15 to-transparent",
-      details: "Dim cozy lighting, endless treats, and watching our favorite film together.",
-    },
-    {
-      id: "you-choose",
-      icon: "sparkles",
-      title: "You Choose (My Treat)",
-      description: "Pick wherever your heart desires — I'm 100% all in.",
-      accent: "from-amber-400/25 via-yellow-500/15 to-transparent",
-      details: "Pick whatever crazy or cozy idea is on your mind — I'm ready.",
-    },
-  ],
-
-  // Screen 5 Header for Date Planning
-  screen5: {
-    title: "So… what kind of date are we having?",
-    subtitle: "Select your favorite vibe (or pick 'You Choose' to surprise me)",
-    ctaText: "Lock It In ❤️",
+  // 11 — CHAPTER 05: “You matter to me.”
+  chapter05: {
+    number: "06",
+    title: "You matter to me.",
+    line1: "You don't have to do anything special to be special to me.",
+    line2: "Your presence is enough.",
+    line3: "Talking to you is enough.",
+    line4: "Knowing you're there is enough.",
+    climax: "You are enough.",
   },
 
-  // Final Screen
-  screenFinal: {
-    title: "Then it's a date. ❤️",
-    promise1: "You bring yourself.",
-    promise2: "I'll take care of the rest.",
-    gratitude: "Thank you for saying yes, Seeluu.",
+  // 12 — THE LONG-TERM FEELING
+  longTermFeeling: {
+    line1: "And if I'm being completely honest…",
+    line2: "I don't know what the future looks like.",
+    line3: "I don't know where life will take us.",
+    climax: "But I know meeting you made my world a little more beautiful.",
+    gratitude: "And I'm grateful for that.",
+  },
+
+  // 13 — FINAL CHAPTER
+  finalChapter: {
+    prompt: "So if you ever wondered…",
+    wordYes: "Yes.",
+    statement: "You matter to me.",
+    climax: "More than I probably know how to say. ❤️",
+  },
+
+  // 14 — FINAL MESSAGE
+  finalMessage: {
+    line1: "And if loving you means finding a new reason to smile every day…",
+    line2: "I hope I get to keep discovering those reasons…",
+    line3: "for a very, very long time.",
     signature: "— Praneeth ❤️",
-    calendarTitle: "Kaju Burfi & Romantic Date with Seeluu & Praneeth ❤️",
-    calendarDescription: "A sweet romantic date just for the two of us!",
+    footnote: "That's all I wanted you to know.",
   },
 
-  // Hidden Easter Egg
+  // 17 — HIDDEN DETAIL
   easterEgg: {
-    heading: "A Little Secret...",
-    body: "P.S. I spent way too much time making this for you, Seeluu! 😂❤️",
-    subtext: "So please appreciate the effort!",
+    line1: "P.S. I spent way too much time making this.",
+    line2: "But somehow, it still doesn't feel like enough. ❤️",
   },
 };

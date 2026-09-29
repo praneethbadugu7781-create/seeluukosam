@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Italiana, Cormorant_Garamond, Outfit, Alex_Brush, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { siteConfig } from "@/config/content";
 
 const italiana = Italiana({
   weight: "400",
@@ -46,11 +45,11 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "For Seeluu ❤️ | A Little Surprise",
-  description: "A luxury digital love letter and invitation made with love by Praneeth.",
+  title: "For Sarvani ❤️ | Loving You More Every Day",
+  description: "A private digital love letter from Praneeth to Sarvani (Seeluu).",
   openGraph: {
-    title: "For Seeluu ❤️ | A Special Invitation",
-    description: "Hey Seeluu, I made something special just for you.",
+    title: "For Sarvani ❤️",
+    description: "A little something I wanted you to know.",
     type: "website",
   },
 };
@@ -63,7 +62,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${italiana.variable} ${cormorant.variable} ${outfit.variable} ${alexBrush.variable} ${playfair.variable}`}
+      className={`${italiana.variable} ${cormorant.variable} ${outfit.variable} ${alexBrush.variable} ${playfair.variable} scroll-smooth`}
     >
       <body className="bg-[#FAF7F2] text-[#24060C] font-sans selection:bg-[#F8D7DD] selection:text-[#5C1220] antialiased overflow-x-hidden min-h-screen">
         {children}

@@ -1,75 +1,110 @@
-export interface DateOption {
-  id: string;
-  icon: string;
-  title: string;
-  description: string;
-  accent: string;
-  details?: string;
-}
-
 export interface MemoryItem {
   id: string;
-  title: string;
-  description: string;
-  tag: string;
-  image?: string;
-  placeholderEmoji?: string;
+  image: string;
+  caption: string;
+  tag?: string;
+  alt: string;
 }
 
-export interface SiteConfig {
-  herName: string;
-  hisName: string;
-  hisSignature: string;
-  whatsappNumber?: string;
+export interface LoveLetterConfig {
+  herFormalName: string; // Sarvani
+  herNickname: string;   // Seeluu / Seeluuu
+  hisName: string;       // Praneeth
+  hisSignature: string;  // — Praneeth ❤️
+
   music: {
     title: string;
     artist: string;
-    audioUrl?: string; // Optional custom audio file path in /public
+    audioUrl?: string;
   };
-  screen1: {
-    greeting: string;
-    subtitle: string;
-    disclaimer: string;
-    ctaText: string;
+
+  opening: {
+    eyebrow: string;
+    line1: string;
+    line2: string;
+    line3Main: string;
+    line4: string;
+    line5Climax: string;
+    scrollPrompt: string;
   };
-  screen2: {
+
+  chapter01: {
+    number: string;
     title: string;
-    lines: string[];
-    climax: string;
-    ctaText: string;
-  };
-  screen3: {
-    prepTitle: string;
-    question: string;
-    subtext: string;
-    yesInitialText: string;
-    maybeSequence: string[];
-    yesEvolution: string[];
-    unlockedHeading: string;
-    unlockedBadge: string;
-    unlockedSubtext: string;
-    unlockedCta: string;
-  };
-  enableMemoriesSection: boolean;
-  memories: MemoryItem[];
-  dateOptions: DateOption[];
-  screen5: {
-    title: string;
-    subtitle: string;
-    ctaText: string;
-  };
-  screenFinal: {
-    title: string;
-    promise1: string;
-    promise2: string;
-    gratitude: string;
-    signature: string;
-    calendarTitle: string;
-    calendarDescription: string;
-  };
-  easterEgg: {
     heading: string;
-    body: string;
-    subtext: string;
+    subheading: string;
+    spacedLines: string[];
+    bridge: string;
+    realization1: string;
+    realization2: string;
+  };
+
+  chapter02: {
+    number: string;
+    title: string;
+    heading: string;
+    cards: string[];
+  };
+
+  chapter03: {
+    number: string;
+    title: string;
+    statement: string;
+    bridge: string;
+    punchline: string;
+  };
+
+  chapter04: {
+    number: string;
+    title: string;
+    line1: string;
+    line2: string;
+    line3: string;
+    climax: string;
+  };
+
+  memories: {
+    number: string;
+    title: string;
+    subtitle: string;
+    items: MemoryItem[];
+  };
+
+  chapter05: {
+    number: string;
+    title: string;
+    line1: string;
+    line2: string;
+    line3: string;
+    line4: string;
+    climax: string;
+  };
+
+  longTermFeeling: {
+    line1: string;
+    line2: string;
+    line3: string;
+    climax: string;
+    gratitude: string;
+  };
+
+  finalChapter: {
+    prompt: string;
+    wordYes: string;
+    statement: string;
+    climax: string;
+  };
+
+  finalMessage: {
+    line1: string;
+    line2: string;
+    line3: string;
+    signature: string;
+    footnote: string;
+  };
+
+  easterEgg: {
+    line1: string;
+    line2: string;
   };
 }

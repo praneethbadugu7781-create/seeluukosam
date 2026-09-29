@@ -1,104 +1,100 @@
 "use client";
 
-import React, { useState } from "react";
-import { AnimatePresence } from "framer-motion";
-import { siteConfig } from "@/config/content";
-import { DateOption } from "@/types";
-import { BackgroundParticles } from "@/components/ui/BackgroundParticles";
-import { InteractiveLoveTrail } from "@/components/ui/InteractiveLoveTrail";
-import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
-import { AudioPlayer } from "@/components/ui/AudioPlayer";
-import { ProgressIndicator } from "@/components/ui/ProgressIndicator";
-import { EasterEggModal, EasterEggTrigger } from "@/components/ui/EasterEggModal";
-import { Screen1Mystery } from "@/components/screens/Screen1Mystery";
-import { Screen2Message } from "@/components/screens/Screen2Message";
-import { Screen3Question } from "@/components/screens/Screen3Question";
-import { Screen4Memories } from "@/components/screens/Screen4Memories";
-import { Screen5DatePlan } from "@/components/screens/Screen5DatePlan";
-import { Screen6Final } from "@/components/screens/Screen6Final";
+import React, { useState, useEffect } from "react";
+import { GrainOverlay } from "@/components/ui/GrainOverlay";
+import { SubtleParticles } from "@/components/ui/SubtleParticles";
+import { AudioController } from "@/components/ui/AudioController";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { SecretHeartEasterEgg } from "@/components/ui/SecretHeartEasterEgg";
+
+import { OpeningHero } from "@/components/cinematic/OpeningHero";
+import { ChapterQuietly } from "@/components/cinematic/ChapterQuietly";
+import { ChapterLittleThings } from "@/components/cinematic/ChapterLittleThings";
+import { ChapterEveryDay } from "@/components/cinematic/ChapterEveryDay";
+import { ChapterThoughts } from "@/components/cinematic/ChapterThoughts";
+import { ChapterMemories } from "@/components/cinematic/ChapterMemories";
+import { ChapterYouMatter } from "@/components/cinematic/ChapterYouMatter";
+import { ChapterFuture } from "@/components/cinematic/ChapterFuture";
+import { ChapterFinal } from "@/components/cinematic/ChapterFinal";
+import { FinalLoveLetter } from "@/components/cinematic/FinalLoveLetter";
 
 export default function Home() {
-  const [currentStep, setCurrentStep] = useState<number>(1);
-  const [selectedDate, setSelectedDate] = useState<DateOption | null>(null);
-  const [isEasterEggOpen, setIsEasterEggOpen] = useState(false);
+  const [currentChapter, setCurrentChapter] = useState<string>("01");
 
-  const hasMemories = siteConfig.enableMemoriesSection && siteConfig.memories.length > 0;
-  const totalSteps = hasMemories ? 6 : 5;
+  // Scroll listener to update subtle chapter indicator
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const totalDocHeight = document.documentElement.scrollHeight - windowHeight;
+      const progress = scrollY / (totalDocHeight || 1);
 
-  const handleNextFromQuestion = () => {
-    if (hasMemories) {
-      setCurrentStep(4);
-    } else {
-      setCurrentStep(4);
-    }
-  };
+      if (progress < 0.16) {
+        setCurrentChapter("01");
+      } else if (progress < 0.32) {
+        setCurrentChapter("02");
+      } else if (progress < 0.48) {
+        setCurrentChapter("03");
+      } else if (progress < 0.64) {
+        setCurrentChapter("04");
+      } else if (progress < 0.82) {
+        setCurrentChapter("05");
+      } else {
+        setCurrentChapter("06");
+      }
+    };
 
-  const handleNextFromMemories = () => {
-    setCurrentStep(5);
-  };
-
-  const handleDateSelected = (date: DateOption) => {
-    setSelectedDate(date);
-    if (hasMemories) {
-      setCurrentStep(6);
-    } else {
-      setCurrentStep(5);
-    }
-  };
-
-  const handleRestart = () => {
-    setSelectedDate(null);
-    setCurrentStep(1);
-  };
-
-  const displayStep = currentStep;
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <main className="relative min-h-screen w-full flex flex-col items-center justify-center p-4 sm:p-6 overflow-hidden bg-gradient-to-b from-[#FAF7F2] via-[#FDFBF7] to-[#FBECEF]/40 safe-area-padding cursor-default select-none">
-      {/* Dynamic Background Visual Layers */}
-      <BackgroundParticles />
-      <InteractiveLoveTrail />
-      <NoiseOverlay />
+    <main className="relative min-h-screen w-full bg-[#FAF7F2] text-[#22040A] overflow-x-hidden">
+      {/* Texture & Ambient Layers */}
+      <GrainOverlay />
+      <SubtleParticles />
 
-      {/* Floating Header UI */}
-      <ProgressIndicator currentStep={displayStep} totalSteps={totalSteps} />
-      <AudioPlayer />
+      {/* Non-Intrusive Floating HUD */}
+      <ScrollProgress currentChapter={currentChapter} totalChapters="06" />
+      <AudioController />
+      <SecretHeartEasterEgg />
 
-      {/* Easter Egg Trigger */}
-      <EasterEggTrigger onTrigger={() => setIsEasterEggOpen(true)} />
-      <EasterEggModal isOpen={isEasterEggOpen} onClose={() => setIsEasterEggOpen(false)} />
+      {/* Cinematic Continuous Scroll Story Flow */}
+      <div className="relative z-10 w-full flex flex-col items-center">
+        {/* 04 — Opening Hero Screen */}
+        <OpeningHero />
 
-      {/* Interactive Flow Screens */}
-      <div className="relative z-10 w-full max-w-2xl flex items-center justify-center">
-        <AnimatePresence mode="wait">
-          {currentStep === 1 && (
-            <Screen1Mystery key="step-1" onNext={() => setCurrentStep(2)} />
-          )}
+        {/* Subtle Section Divider */}
+        <div className="w-12 h-px bg-[#7E192D]/15 my-6" />
 
-          {currentStep === 2 && (
-            <Screen2Message key="step-2" onNext={() => setCurrentStep(3)} />
-          )}
+        {/* 06 — Chapter 01: It happened quietly */}
+        <ChapterQuietly />
 
-          {currentStep === 3 && (
-            <Screen3Question key="step-3" onNext={handleNextFromQuestion} />
-          )}
+        {/* 07 — Chapter 02: It's the little things */}
+        <ChapterLittleThings />
 
-          {hasMemories && currentStep === 4 && (
-            <Screen4Memories key="step-4-memories" onNext={handleNextFromMemories} />
-          )}
+        {/* 08 — Chapter 03: Every day, a little more */}
+        <ChapterEveryDay />
 
-          {((hasMemories && currentStep === 5) || (!hasMemories && currentStep === 4)) && (
-            <Screen5DatePlan key="step-date-plan" onNext={handleDateSelected} />
-          )}
+        {/* 09 — Chapter 04: If you could see my thoughts (Dark Section) */}
+        <div className="w-full px-3 sm:px-6">
+          <ChapterThoughts />
+        </div>
 
-          {((hasMemories && currentStep === 6) || (!hasMemories && currentStep === 5)) && (
-            <Screen6Final
-              key="step-final"
-              selectedDate={selectedDate}
-              onRestart={handleRestart}
-            />
-          )}
-        </AnimatePresence>
+        {/* 10 — Personal Memories: Things I don't want to forget */}
+        <ChapterMemories />
+
+        {/* 11 — Chapter 05: You matter to me */}
+        <ChapterYouMatter />
+
+        {/* 12 — The Long-Term Feeling */}
+        <ChapterFuture />
+
+        {/* 13 — Final Chapter: Yes. You matter to me. */}
+        <ChapterFinal />
+
+        {/* 14 — Final Message & Signature */}
+        <FinalLoveLetter />
       </div>
     </main>
   );
