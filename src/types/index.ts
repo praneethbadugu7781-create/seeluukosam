@@ -8,9 +8,9 @@ export interface MemoryItem {
 
 export interface LoveLetterConfig {
   herFormalName: string; // Sarvani
-  herNickname: string;   // Seeluu / Seeluuu
+  herNickname: string;   // Seeluu
   hisName: string;       // Praneeth
-  hisSignature: string;  // — Praneeth ❤️
+  hisSignature: string;  // — Praneeth
 
   music: {
     title: string;
@@ -66,41 +66,40 @@ export interface LoveLetterConfig {
   memories: {
     number: string;
     title: string;
-    subtitle: string;
     items: MemoryItem[];
   };
 
-  chapter05: {
+  chapter06Forever: {
     number: string;
-    title: string;
-    line1: string;
-    line2: string;
-    line3: string;
-    line4: string;
-    climax: string;
+    intro: string;
+    promise: string;
+    list: string[];
+    withYou: string;
+    mainClimax: string;
+    notJust1: string;
+    notJust2: string;
+    notJust3: string;
   };
 
-  longTermFeeling: {
+  futureSection: {
     line1: string;
-    line2: string;
-    line3: string;
-    climax: string;
-    gratitude: string;
+    chooseBridge: string;
+    centerpiece: string;
+    notBecause: string;
+    besideMe: string;
+    finalEmphasis: string;
   };
 
-  finalChapter: {
-    prompt: string;
-    wordYes: string;
-    statement: string;
-    climax: string;
-  };
-
-  finalMessage: {
-    line1: string;
-    line2: string;
-    line3: string;
+  finalScreen: {
+    doubt: string;
+    howMuch: string;
+    words1: string;
+    words2: string;
+    iLoveYou: string;
+    pauseToday: string;
+    pauseTomorrow: string;
+    pauseEveryTomorrow: string;
     signature: string;
-    footnote: string;
   };
 
   easterEgg: {

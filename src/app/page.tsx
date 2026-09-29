@@ -13,31 +13,31 @@ import { ChapterLittleThings } from "@/components/cinematic/ChapterLittleThings"
 import { ChapterEveryDay } from "@/components/cinematic/ChapterEveryDay";
 import { ChapterThoughts } from "@/components/cinematic/ChapterThoughts";
 import { ChapterMemories } from "@/components/cinematic/ChapterMemories";
-import { ChapterYouMatter } from "@/components/cinematic/ChapterYouMatter";
+import { Chapter06Forever } from "@/components/cinematic/Chapter06Forever";
 import { ChapterFuture } from "@/components/cinematic/ChapterFuture";
-import { ChapterFinal } from "@/components/cinematic/ChapterFinal";
 import { FinalLoveLetter } from "@/components/cinematic/FinalLoveLetter";
 
 export default function Home() {
   const [currentChapter, setCurrentChapter] = useState<string>("01");
+  const [progressPercent, setProgressPercent] = useState<number>(0);
 
-  // Scroll listener to update subtle chapter indicator
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const totalDocHeight = document.documentElement.scrollHeight - windowHeight;
-      const progress = scrollY / (totalDocHeight || 1);
+      const progress = Math.min(100, Math.max(0, (scrollY / (totalDocHeight || 1)) * 100));
+      setProgressPercent(progress);
 
-      if (progress < 0.16) {
+      if (progress < 16) {
         setCurrentChapter("01");
-      } else if (progress < 0.32) {
+      } else if (progress < 32) {
         setCurrentChapter("02");
-      } else if (progress < 0.48) {
+      } else if (progress < 48) {
         setCurrentChapter("03");
-      } else if (progress < 0.64) {
+      } else if (progress < 64) {
         setCurrentChapter("04");
-      } else if (progress < 0.82) {
+      } else if (progress < 82) {
         setCurrentChapter("05");
       } else {
         setCurrentChapter("06");
@@ -49,51 +49,48 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative min-h-screen w-full bg-[#FAF7F2] text-[#22040A] overflow-x-hidden">
+    <main className="relative min-h-screen w-full bg-[#FAF8F5] text-[#241719] overflow-x-hidden">
       {/* Texture & Ambient Layers */}
       <GrainOverlay />
       <SubtleParticles />
 
       {/* Non-Intrusive Floating HUD */}
-      <ScrollProgress currentChapter={currentChapter} totalChapters="06" />
+      <ScrollProgress currentChapter={currentChapter} totalChapters="06" progressPercent={progressPercent} />
       <AudioController />
       <SecretHeartEasterEgg />
 
       {/* Cinematic Continuous Scroll Story Flow */}
       <div className="relative z-10 w-full flex flex-col items-center">
-        {/* 04 — Opening Hero Screen */}
+        {/* Opening Hero Screen */}
         <OpeningHero />
 
-        {/* Subtle Section Divider */}
-        <div className="w-12 h-px bg-[#7E192D]/15 my-6" />
+        {/* Subtle Divider */}
+        <div className="w-12 h-[1px] bg-studio-primary/10 my-6" />
 
-        {/* 06 — Chapter 01: It happened quietly */}
+        {/* Chapter 01: It happened quietly */}
         <ChapterQuietly />
 
-        {/* 07 — Chapter 02: It's the little things */}
+        {/* Chapter 02: It's the little things */}
         <ChapterLittleThings />
 
-        {/* 08 — Chapter 03: Every day, a little more */}
+        {/* Chapter 03: Every day, a little more */}
         <ChapterEveryDay />
 
-        {/* 09 — Chapter 04: If you could see my thoughts (Dark Section) */}
+        {/* Chapter 04: If you could see my thoughts (Dark Section) */}
         <div className="w-full px-3 sm:px-6">
           <ChapterThoughts />
         </div>
 
-        {/* 10 — Personal Memories: Things I don't want to forget */}
+        {/* Personal Memories: Things I don't want to forget */}
         <ChapterMemories />
 
-        {/* 11 — Chapter 05: You matter to me */}
-        <ChapterYouMatter />
+        {/* Chapter 06: Commitment & Forever (I want you in my forever) */}
+        <Chapter06Forever />
 
-        {/* 12 — The Long-Term Feeling */}
+        {/* Future Section: I'd choose a future with you */}
         <ChapterFuture />
 
-        {/* 13 — Final Chapter: Yes. You matter to me. */}
-        <ChapterFinal />
-
-        {/* 14 — Final Message & Signature */}
+        {/* Final Screen: I love you. Today. Tomorrow. And for every tomorrow... */}
         <FinalLoveLetter />
       </div>
     </main>
