@@ -12,6 +12,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   margin: 0;
@@ -42,10 +46,10 @@ body {
 
 /* Smooth minimalistic scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF8F5;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: #E8DFD8;
@@ -53,4 +57,9 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #A94B58;
+}
+
+/* Prevent horizontal overflow globally */
+section {
+  overflow-x: hidden;
 }

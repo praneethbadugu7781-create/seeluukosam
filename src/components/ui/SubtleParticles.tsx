@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-interface AmbientMote {
+interface FloatingHeartMote {
   id: number;
   x: number;
   y: number;
@@ -11,33 +11,28 @@ interface AmbientMote {
   duration: number;
   delay: number;
   opacity: number;
-  color: string;
+  symbol: string;
 }
 
 export function SubtleParticles() {
-  const [motes, setMotes] = useState<AmbientMote[]>([]);
+  const [hearts, setHearts] = useState<FloatingHeartMote[]>([]);
 
   useEffect(() => {
-    const colors = [
-      "rgba(201, 160, 48, 0.25)", // Muted Champagne Gold
-      "rgba(247, 181, 193, 0.25)", // Soft Blush
-      "rgba(244, 237, 225, 0.35)", // Warm Ivory
-      "rgba(225, 88, 114, 0.18)", // Gentle Rose
-    ];
+    const symbols = ["❤️", "💖", "✨", "💕", "🌸", "🤍", "💫"];
+    const count = typeof window !== "undefined" && window.innerWidth < 768 ? 18 : 28;
 
-    const count = typeof window !== "undefined" && window.innerWidth < 768 ? 14 : 22;
-    const generated: AmbientMote[] = Array.from({ length: count }, (_, i) => ({
+    const generated: FloatingHeartMote[] = Array.from({ length: count }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: Math.random() * 3 + 2,
-      duration: Math.random() * 10 + 14,
+      size: Math.random() * 14 + 12,
+      duration: Math.random() * 8 + 10,
       delay: Math.random() * 5,
-      opacity: Math.random() * 0.4 + 0.15,
-      color: colors[i % colors.length],
+      opacity: Math.random() * 0.35 + 0.15,
+      symbol: symbols[i % symbols.length],
     }));
 
-    setMotes(generated);
+    setHearts(generated);
   }, []);
 
   return (
@@ -45,36 +40,60 @@ export function SubtleParticles() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 overflow-hidden z-0 select-none"
     >
-      {/* Soft atmospheric ambient glow orbs */}
-      <div className="absolute top-0 left-1/4 w-[60vw] h-[60vw] max-w-[500px] max-h-[500px] rounded-full bg-gradient-to-br from-blush-200/25 via-peach-100/20 to-transparent blur-3xl" />
-      <div className="absolute top-1/2 right-0 w-[55vw] h-[55vw] max-w-[480px] max-h-[480px] rounded-full bg-gradient-to-bl from-wine-100/25 via-blush-100/15 to-transparent blur-3xl" />
+      {/* Rich Romantic Glowing Ambient Auras */}
+      <motion.div
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.4, 0.65, 0.4],
+          x: [0, 20, 0],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-[10%] left-[10%] w-[65vw] h-[65vw] max-w-[550px] max-h-[550px] rounded-full bg-gradient-to-br from-[#FBD5DB]/45 via-[#FCEEE4]/35 to-transparent blur-3xl"
+      />
+      <motion.div
+        animate={{
+          scale: [1.1, 1, 1.1],
+          opacity: [0.35, 0.6, 0.35],
+          x: [0, -25, 0],
+        }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute top-[40%] -right-[10%] w-[70vw] h-[70vw] max-w-[600px] max-h-[600px] rounded-full bg-gradient-to-bl from-[#F8E0E4]/40 via-[#FBD5DB]/30 to-transparent blur-3xl"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.55, 0.3],
+        }}
+        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute -bottom-[10%] left-[20%] w-[60vw] h-[60vw] max-w-[500px] max-h-[500px] rounded-full bg-gradient-to-t from-[#FCEEE4]/40 via-[#FAF4DC]/30 to-transparent blur-3xl"
+      />
 
-      {/* Floating motes */}
-      {motes.map((m) => (
+      {/* Floating Animated Heart Symbols */}
+      {hearts.map((h) => (
         <motion.div
-          key={m.id}
-          className="absolute rounded-full"
+          key={h.id}
+          className="absolute select-none pointer-events-none drop-shadow-sm"
           style={{
-            left: `${m.x}%`,
-            top: `${m.y}%`,
-            width: `${m.size}px`,
-            height: `${m.size}px`,
-            backgroundColor: m.color,
-            boxShadow: `0 0 ${m.size * 2}px ${m.color}`,
+            left: `${h.x}%`,
+            top: `${h.y}%`,
+            fontSize: `${h.size}px`,
           }}
           animate={{
-            y: ["0px", "-50px", "0px"],
-            x: ["0px", "15px", "-15px", "0px"],
-            opacity: [m.opacity * 0.4, m.opacity, m.opacity * 0.3],
+            y: ["0px", "-65px", "0px"],
+            x: ["0px", "20px", "-15px", "0px"],
+            opacity: [h.opacity * 0.3, h.opacity, h.opacity * 0.2],
+            rotate: [0, 15, -15, 0],
             scale: [1, 1.2, 0.9, 1],
           }}
           transition={{
-            duration: m.duration,
+            duration: h.duration,
             repeat: Infinity,
-            delay: m.delay,
+            delay: h.delay,
             ease: "easeInOut",
           }}
-        />
+        >
+          {h.symbol}
+        </motion.div>
       ))}
     </div>
   );
