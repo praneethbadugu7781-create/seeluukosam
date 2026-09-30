@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: 'Bodoni Moda', Georgia, serif;
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: "Bodoni Moda", Georgia, serif;
 }
 
 * {
@@ -12,84 +12,42 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
-  background-color: #FAF8F5;
-  color: #241719;
-  overflow-x: hidden;
+  height: 100%;
+  background: #070a12;
+  color: #f6f1e8;
+  overflow: hidden;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100dvh;
 }
 
 ::selection {
-  background-color: #F3E3E3;
-  color: #A94B58;
+  background: rgba(168, 164, 216, 0.28);
+  color: #f6f1e8;
 }
 
-.safe-area-padding {
-  padding-top: env(safe-area-inset-top, 16px);
-  padding-bottom: env(safe-area-inset-bottom, 16px);
-  padding-left: env(safe-area-inset-left, 16px);
-  padding-right: env(safe-area-inset-right, 16px);
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
 }
 
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #E8DFD8;
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #A94B58;
-}
-
-section {
-  overflow-x: hidden;
-}
-
-/* ===== GPU-accelerated CSS animations (replaces Framer Motion) ===== */
-
-@keyframes aura-breathe-1 {
-  0%, 100% { transform: scale(1) translateX(0); opacity: 0.25; }
-  50% { transform: scale(1.12) translateX(15px); opacity: 0.4; }
-}
-@keyframes aura-breathe-2 {
-  0%, 100% { transform: scale(1.08) translateX(0); opacity: 0.2; }
-  50% { transform: scale(1) translateX(-18px); opacity: 0.35; }
-}
-@keyframes aura-breathe-3 {
-  0%, 100% { transform: scale(1); opacity: 0.2; }
-  50% { transform: scale(1.15); opacity: 0.35; }
-}
-@keyframes float-heart {
-  0%, 100% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); }
-  25% { transform: translateY(-30px) translateX(10px) scale(1.05) rotate(5deg); }
-  50% { transform: translateY(-50px) translateX(-8px) scale(0.95) rotate(-5deg); }
-  75% { transform: translateY(-20px) translateX(12px) scale(1.02) rotate(3deg); }
-}
-
-.animate-aura-1 {
-  animation: aura-breathe-1 10s ease-in-out infinite;
-}
-.animate-aura-2 {
-  animation: aura-breathe-2 12s ease-in-out infinite 1s;
-}
-.animate-aura-3 {
-  animation: aura-breathe-3 11s ease-in-out infinite 2s;
-}
-.animate-float-heart {
-  animation: float-heart 14s ease-in-out infinite;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.2s !important;
+  }
 }
